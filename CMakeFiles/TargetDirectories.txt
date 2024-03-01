@@ -1,0 +1,4 @@
+/home/upgautam/CLionProjects/FastPathTest/CMakeFiles/my_executable.dir
+/home/upgautam/CLionProjects/FastPathTest/CMakeFiles/my_executable_sanitized.dir
+/home/upgautam/CLionProjects/FastPathTest/CMakeFiles/edit_cache.dir
+/home/upgautam/CLionProjects/FastPathTest/CMakeFiles/rebuild_cache.dir
