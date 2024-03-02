@@ -73,15 +73,15 @@ CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o: CMakeFiles/HelloWorld_saniti
 CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o: /home/upgautam/CLionProjects/FastPathTest/HelloWorld.c
 CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o: CMakeFiles/HelloWorld_sanitized.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/upgautam/CLionProjects/FastPathTest/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o"
-	/usr/bin/clang-18 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o -MF CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o.d -o CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o -c /home/upgautam/CLionProjects/FastPathTest/HelloWorld.c
+	/opt/llvm-18.1.0-rc4/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o -MF CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o.d -o CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o -c /home/upgautam/CLionProjects/FastPathTest/HelloWorld.c
 
 CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.i"
-	/usr/bin/clang-18 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/upgautam/CLionProjects/FastPathTest/HelloWorld.c > CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.i
+	/opt/llvm-18.1.0-rc4/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/upgautam/CLionProjects/FastPathTest/HelloWorld.c > CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.i
 
 CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.s"
-	/usr/bin/clang-18 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/upgautam/CLionProjects/FastPathTest/HelloWorld.c -o CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.s
+	/opt/llvm-18.1.0-rc4/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/upgautam/CLionProjects/FastPathTest/HelloWorld.c -o CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.s
 
 # Object files for target HelloWorld_sanitized
 HelloWorld_sanitized_OBJECTS = \

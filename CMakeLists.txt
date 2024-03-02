@@ -5,19 +5,19 @@ set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 17)
 
 # Define a variable for your custom toolchain path
-#set(MY_LLVM_TOOLCHAIN "/opt/llvm-18.1.0-rc4/bin")
-set(MY_LLVM_TOOLCHAIN "/usr/bin")
+set(MY_LLVM_TOOLCHAIN "/opt/llvm-18.1.0-rc4/bin")
+#set(MY_LLVM_TOOLCHAIN "/usr/bin")
 
-# Set the C and C++ compilers to clang-18
-set(CMAKE_C_COMPILER "${MY_LLVM_TOOLCHAIN}/clang-18")
+# Set the C and C++ compilers to clang
+set(CMAKE_C_COMPILER "${MY_LLVM_TOOLCHAIN}/clang")
 
 # Common compile flags
 set(COMMON_FLAGS "-O0 -g -Wall -Wextra")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${COMMON_FLAGS}")
 
-# Use lld-18 as linker
-# Replace -fuse-ld=${MY_LLVM_TOOLCHAIN}/lld-18 with the correct -fuse-ld=ld.lld-18 option
-set(CMAKE_EXE_LINKER_FLAGS "-fuse-ld=${MY_LLVM_TOOLCHAIN}/ld.lld-18 ${CMAKE_EXE_LINKER_FLAGS}")
+# Use lld as linker
+# Replace -fuse-ld=${MY_LLVM_TOOLCHAIN}/lld with the correct -fuse-ld=ld.lld option
+set(CMAKE_EXE_LINKER_FLAGS "--ld-path=${MY_LLVM_TOOLCHAIN}/ld.lld ${CMAKE_EXE_LINKER_FLAGS}")
 
 # Define two executables: one sanitized, one not
 add_executable(HelloWorld HelloWorld.c) # Not-sanitized version

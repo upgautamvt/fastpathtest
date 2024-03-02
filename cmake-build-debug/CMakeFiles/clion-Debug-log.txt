@@ -1,10 +1,4 @@
-/home/upgautam/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/upgautam/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -G Ninja -S /home/upgautam/CLionProjects/FastPathTest -B /home/upgautam/CLionProjects/FastPathTest/cmake-build-debug
--- The C compiler identification is GNU 11.4.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Configuring done (0.3s)
--- Generating done (0.0s)
--- Build files have been written to: /home/upgautam/CLionProjects/FastPathTest/cmake-build-debug
+Cannot generate into /home/upgautam/CLionProjects/FastPathTest
+It was created with incompatible generator 'Unix Makefiles'
+
+Please either delete it manually or select another generation directory
