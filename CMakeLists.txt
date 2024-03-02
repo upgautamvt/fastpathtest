@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 # Define a variable for your custom toolchain path
 set(MY_LLVM_TOOLCHAIN "/opt/llvm-18.1.0-rc4/bin")
-#set(MY_LLVM_TOOLCHAIN "/usr/bin")
 
 # Set the C and C++ compilers to clang
 set(CMAKE_C_COMPILER "${MY_LLVM_TOOLCHAIN}/clang")
