@@ -29,5 +29,5 @@ string(REPLACE " " ";" SANITIZE_FLAGS "${SANITIZE_FLAGS}")
 target_compile_options(HelloWorld_sanitized PRIVATE ${SANITIZE_FLAGS})
 target_link_options(HelloWorld_sanitized PRIVATE ${SANITIZE_FLAGS})
 
-# after this , to configure adn generate build system, do  "cmake -S . -B build"
+# after this , to configure and generate build system, do  "cmake -S . -B build"
 # And to build your project, navigate to build directory and run "cmake --build ." or directly use "cmake --build build" if you are in parent (not build) directory
