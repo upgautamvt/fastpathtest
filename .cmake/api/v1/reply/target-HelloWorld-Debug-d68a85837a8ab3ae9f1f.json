@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "HelloWorld_sanitized"
+			"path" : "HelloWorld"
 		}
 	],
 	"backtrace" : 1,
@@ -10,9 +10,7 @@
 	{
 		"commands" : 
 		[
-			"add_executable",
-			"target_link_options",
-			"target_compile_options"
+			"add_executable"
 		],
 		"files" : 
 		[
@@ -26,19 +24,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 24,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 31,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 30,
+				"line" : 22,
 				"parent" : 0
 			}
 		]
@@ -50,14 +36,6 @@
 			[
 				{
 					"fragment" : " -O0 -g -Wall -Wextra -g -fcolor-diagnostics"
-				},
-				{
-					"backtrace" : 3,
-					"fragment" : "-fsanitize=address,undefined"
-				},
-				{
-					"backtrace" : 3,
-					"fragment" : "-fno-omit-frame-pointer"
 				}
 			],
 			"language" : "C",
@@ -75,7 +53,7 @@
 			]
 		}
 	],
-	"id" : "HelloWorld_sanitized::@6890427a1f51a3e7e1df",
+	"id" : "HelloWorld::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -87,22 +65,12 @@
 			{
 				"fragment" : "--ld-path=/opt/llvm-18.1.0-rc4/bin/ld.lld",
 				"role" : "flags"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "-fsanitize=address,undefined",
-				"role" : "flags"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "-fno-omit-frame-pointer",
-				"role" : "flags"
 			}
 		],
 		"language" : "C"
 	},
-	"name" : "HelloWorld_sanitized",
-	"nameOnDisk" : "HelloWorld_sanitized",
+	"name" : "HelloWorld",
+	"nameOnDisk" : "HelloWorld",
 	"paths" : 
 	{
 		"build" : ".",

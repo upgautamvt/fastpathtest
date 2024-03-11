@@ -1,4 +1,26 @@
-Cannot generate into /home/upgautam/CLionProjects/FastPathTest
-It was created with incompatible generator 'Unix Makefiles'
+/mnt/MyBackup/cmake-3.29.0-rc3-linux-x86_64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=clang-18 -DCMAKE_CXX_COMPILER=clang++-18 -G "CodeBlocks - Unix Makefiles" -S /home/upgautam/CLionProjects/fastpathtest -B /home/upgautam/CLionProjects/fastpathtest
+CMake Deprecation Warning:
+  Support for "Extra Generators" like
 
-Please either delete it manually or select another generation directory
+    CodeBlocks
+
+  is deprecated and will be removed from a future version of CMake.  IDEs may
+  use the cmake-file-api(7) to view CMake-generated project build trees.
+
+
+-- The C compiler identification is Clang 18.1.2
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/clang-18 - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_CXX_COMPILER
+
+
+-- Build files have been written to: /home/upgautam/CLionProjects/fastpathtest
+CMake File API: /home/upgautam/CLionProjects/fastpathtest: target-HelloWorld-Debug-d68a85837a8ab3ae9f1f.json: Cannot resolve compiler path '/opt/llvm-18.1.0-rc4/bin/clang'
