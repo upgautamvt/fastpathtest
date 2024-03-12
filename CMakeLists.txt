@@ -15,16 +15,16 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${COMMON_FLAGS}")
 set(CMAKE_EXE_LINKER_FLAGS "--ld-path=ld.lld-18 ${CMAKE_EXE_LINKER_FLAGS}")
 
 # version 1: hardcoded
-## Define two executables: one sanitized, one not
-#add_executable(HelloWorld HelloWorld.c) # Not-sanitized version
-#add_executable(HelloWorld_sanitized HelloWorld.c) # Sanitized version
-#
-## Sanitizer flags
-#set(SANITIZE_FLAGS "-fsanitize=address,undefined -fno-omit-frame-pointer")
-#string(REPLACE " " ";" SANITIZE_FLAGS "${SANITIZE_FLAGS}")
-## Apply sanitizer flags only to the sanitized target
-#target_compile_options(HelloWorld_sanitized PRIVATE ${SANITIZE_FLAGS})
-#target_link_options(HelloWorld_sanitized PRIVATE ${SANITIZE_FLAGS})
+    ## Define two executables: one sanitized, one not
+    #add_executable(HelloWorld HelloWorld.c) # Not-sanitized version
+    #add_executable(HelloWorld_sanitized HelloWorld.c) # Sanitized version
+    #
+    ## Sanitizer flags
+    #set(SANITIZE_FLAGS "-fsanitize=address,undefined -fno-omit-frame-pointer")
+    #string(REPLACE " " ";" SANITIZE_FLAGS "${SANITIZE_FLAGS}")
+    ## Apply sanitizer flags only to the sanitized target
+    #target_compile_options(HelloWorld_sanitized PRIVATE ${SANITIZE_FLAGS})
+    #target_link_options(HelloWorld_sanitized PRIVATE ${SANITIZE_FLAGS})
 
 # version 2: using GLOB to include any named files
 # Find all .c files in the directory
@@ -46,5 +46,5 @@ foreach(SOURCE_FILE ${SOURCE_FILES})
     target_link_options(${EXECUTABLE_NAME}_sanitized PRIVATE ${SANITIZE_FLAGS})
 endforeach()
 
-# do  "cmake -S . -B build"
-# And to build your project,  "cmake --build build" if you are in parent (not build) directory
+# cmake -S . -B build
+# cmake --build build
