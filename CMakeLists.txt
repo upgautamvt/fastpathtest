@@ -14,7 +14,6 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${COMMON_FLAGS}")
 # Use lld as linker
 set(CMAKE_EXE_LINKER_FLAGS "--ld-path=ld.lld-18 ${CMAKE_EXE_LINKER_FLAGS}")
 
-
 # version 1: hardcoded
 ## Define two executables: one sanitized, one not
 #add_executable(HelloWorld HelloWorld.c) # Not-sanitized version
@@ -26,7 +25,6 @@ set(CMAKE_EXE_LINKER_FLAGS "--ld-path=ld.lld-18 ${CMAKE_EXE_LINKER_FLAGS}")
 ## Apply sanitizer flags only to the sanitized target
 #target_compile_options(HelloWorld_sanitized PRIVATE ${SANITIZE_FLAGS})
 #target_link_options(HelloWorld_sanitized PRIVATE ${SANITIZE_FLAGS})
-
 
 # version 2: using GLOB to include any named files
 # Find all .c files in the directory
