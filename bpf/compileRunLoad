@@ -1,0 +1,28 @@
+clang-18 -O0 -target bpf -c HelloWorldBpf.c -o HelloWorldBpf.o
+
+sudo bpftool prog load HelloWorldBpf.o /sys/fs/bpf/HelloWorldBpf
+
+
+
+upgautam@ubuntu205:~/CLionProjects/fastpathtestBpf/bpf$ bpftool btf dump file HelloWorldBpf.o
+[1] PTR '(anon)' type_id=3
+[2] INT 'int' size=4 bits_offset=0 nr_bits=32 encoding=SIGNED
+[3] ARRAY '(anon)' type_id=2 index_type_id=4 nr_elems=2
+[4] INT '__ARRAY_SIZE_TYPE__' size=4 bits_offset=0 nr_bits=32 encoding=(none)
+[5] PTR '(anon)' type_id=2
+[6] PTR '(anon)' type_id=8
+[7] INT 'char' size=1 bits_offset=0 nr_bits=8 encoding=SIGNED
+[8] ARRAY '(anon)' type_id=7 index_type_id=4 nr_elems=256
+[9] STRUCT '(anon)' size=24 vlen=3
+        'type' type_id=1 bits_offset=0
+        'key' type_id=5 bits_offset=64
+        'value' type_id=6 bits_offset=128
+[10] VAR 'my_map' type_id=9, linkage=global
+[11] PTR '(anon)' type_id=0
+[12] FUNC_PROTO '(anon)' ret_type_id=2 vlen=1
+        'ctx' type_id=11
+[13] FUNC 'bpf_prog' type_id=12 linkage=global
+[14] DATASEC '.maps' size=0 vlen=1
+        type_id=10 offset=0 size=24 (VAR 'my_map')
+
+
