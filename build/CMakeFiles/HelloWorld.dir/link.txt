@@ -1,1 +1,1 @@
-/opt/llvm-18.1.0-rc4/bin/clang  -O0 -g -Wall -Wextra --ld-path=/opt/llvm-18.1.0-rc4/bin/ld.lld  CMakeFiles/HelloWorld.dir/HelloWorld.c.o -o HelloWorld
+clang-18  -O0 -g -Wall -Wextra --ld-path=ld.lld-18  CMakeFiles/HelloWorld.dir/HelloWorld.c.o -o HelloWorld

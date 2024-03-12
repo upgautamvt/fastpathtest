@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/upgautam/CLionProjects/FastPathTest/HelloWorld.c" "CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o" "gcc" "CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o.d"
+  "/home/upgautam/CLionProjects/fastpathtest/HelloWorld.c" "CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o" "gcc" "CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

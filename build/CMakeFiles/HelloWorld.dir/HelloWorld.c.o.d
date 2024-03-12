@@ -1,5 +1,5 @@
 CMakeFiles/HelloWorld.dir/HelloWorld.c.o: \
-  /home/upgautam/CLionProjects/FastPathTest/HelloWorld.c \
+  /home/upgautam/CLionProjects/fastpathtest/HelloWorld.c \
   /usr/include/stdio.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h /usr/include/features-time64.h \
@@ -9,11 +9,11 @@ CMakeFiles/HelloWorld.dir/HelloWorld.c.o: \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
-  /opt/llvm-18.1.0-rc4/lib/clang/18/include/stddef.h \
-  /opt/llvm-18.1.0-rc4/lib/clang/18/include/__stddef_size_t.h \
-  /opt/llvm-18.1.0-rc4/lib/clang/18/include/__stddef_null.h \
-  /opt/llvm-18.1.0-rc4/lib/clang/18/include/stdarg.h \
-  /opt/llvm-18.1.0-rc4/lib/clang/18/include/__stdarg___gnuc_va_list.h \
+  /usr/lib/llvm-18/lib/clang/18/include/stddef.h \
+  /usr/lib/llvm-18/lib/clang/18/include/__stddef_size_t.h \
+  /usr/lib/llvm-18/lib/clang/18/include/__stddef_null.h \
+  /usr/lib/llvm-18/lib/clang/18/include/stdarg.h \
+  /usr/lib/llvm-18/lib/clang/18/include/__stdarg___gnuc_va_list.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \

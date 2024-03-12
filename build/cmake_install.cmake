@@ -1,4 +1,4 @@
-# Install script for directory: /home/upgautam/CLionProjects/FastPathTest
+# Install script for directory: /home/upgautam/CLionProjects/fastpathtest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/upgautam/CLionProjects/FastPathTest/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/upgautam/CLionProjects/fastpathtest/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
