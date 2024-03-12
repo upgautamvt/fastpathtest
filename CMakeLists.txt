@@ -46,5 +46,5 @@ foreach(SOURCE_FILE ${SOURCE_FILES})
     target_link_options(${EXECUTABLE_NAME}_sanitized PRIVATE ${SANITIZE_FLAGS})
 endforeach()
 
-# after this , to configure and generate build system, do  "cmake -S . -B build"
-# And to build your project, navigate to build directory and run "cmake --build ." or directly use "cmake --build build" if you are in parent (not build) directory
+# do  "cmake -S . -B build"
+# And to build your project,  "cmake --build build" if you are in parent (not build) directory
