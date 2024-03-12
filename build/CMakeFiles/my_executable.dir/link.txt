@@ -1,1 +1,0 @@
-/usr/bin/clang-18  -O0 -g -Wall -Wextra -fuse-ld=/usr/bin/ld.lld-18  CMakeFiles/my_executable.dir/HelloWorld.c.o -o my_executable 

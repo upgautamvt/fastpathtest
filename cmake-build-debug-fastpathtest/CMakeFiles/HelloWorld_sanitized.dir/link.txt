@@ -1,1 +1,0 @@
-/opt/llvm-18.1.0-rc4/bin/clang  -O0 -g -Wall -Wextra -g --ld-path=/opt/llvm-18.1.0-rc4/bin/ld.lld  -fsanitize=address,undefined -fno-omit-frame-pointer CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.o -o HelloWorld_sanitized

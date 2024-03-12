@@ -2,3 +2,5 @@ cmake-build-debug-fastpathtest/
 .cmake/
 .idea/
 CMakeFiles/
+cmake-build-debug/
+build/CMakeFiles

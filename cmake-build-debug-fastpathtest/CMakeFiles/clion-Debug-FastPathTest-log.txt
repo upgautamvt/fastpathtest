@@ -1,4 +1,0 @@
-/mnt/1tb/cmake-3.29.0-rc2-linux-x86_64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/opt/llvm-18.1.0-rc4/bin/clang -DCMAKE_CXX_COMPILER=/opt/llvm-18.1.0-rc4/bin/clang++ -G "Unix Makefiles" -DCMAKE_C_COMPILER=/opt/llvm-18.1.0-rc4/bin/clang -DCMAKE_CXX_COMPILER=/opt/llvm-18.1.0-rc4/bin/clang++ -S /home/upgautam/CLionProjects/FastPathTest -B /home/upgautam/CLionProjects/FastPathTest
--- Configuring done (0.0s)
--- Generating done (0.0s)
--- Build files have been written to: /home/upgautam/CLionProjects/FastPathTest

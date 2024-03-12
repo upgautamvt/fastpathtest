@@ -1,4 +1,0 @@
-/home/upgautam/CLionProjects/FastPathTest/cmake-build-debug-fastpathtest/CMakeFiles/HelloWorld.dir
-/home/upgautam/CLionProjects/FastPathTest/cmake-build-debug-fastpathtest/CMakeFiles/HelloWorld_sanitized.dir
-/home/upgautam/CLionProjects/FastPathTest/cmake-build-debug-fastpathtest/CMakeFiles/edit_cache.dir
-/home/upgautam/CLionProjects/FastPathTest/cmake-build-debug-fastpathtest/CMakeFiles/rebuild_cache.dir

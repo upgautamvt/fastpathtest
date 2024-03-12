@@ -1,3 +1,0 @@
-/home/upgautam/CLionProjects/FastPathTest/cmake-build-debug/CMakeFiles/FastPathTest.dir
-/home/upgautam/CLionProjects/FastPathTest/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/upgautam/CLionProjects/FastPathTest/cmake-build-debug/CMakeFiles/rebuild_cache.dir
