@@ -29,6 +29,10 @@ Also, we need to include LICENSE, otherwise BPF verifier won't load the program
 clang -O2 -target bpf -c HelloWorldBpf.c -o HelloWorldBpf.o -I/usr/include/linux -I/lib/modules/$(uname -r)/build/include -I/lib/modules/$(uname -r)/build/include/uapi
 
 ##prequisites
+
+bpftool btf dump file /sys/kernel/btf/vmlinux format c > vmlinux.h
+
+
 sudo mount -t debugfs none /sys/kernel/debug # usually already enabled by system
 sudo -i and then from root shell
 cd /sys/kernel/debug/tracing/events/syscalls
@@ -69,3 +73,10 @@ we can kill the trace_pipe running process by closing the terminal
 or restart tracing by "echo 0 | sudo tee /sys/kernel/debug/tracing/tracing_on" and then enable again by "echo 1 | sudo tee /sys/kernel/debug/tracing/tracing_on"
 
 
+## compile and load and attach
+clang -O2 -target bpf -c ThousandLoopBpf.c -o ThousandLoopBpf.o -I/usr/include/linux -I/lib/modules/$(uname -r)/build/include -I/lib/modules/$(uname -r)/build/include/uapi
+sudo bpftool prog load ThousandLoopBpf.o /sys/fs/bpf/ThousandLoopBpf type tracepoint autoattach
+
+
+clang -O2 -target bpf -c HelloWorldBpf.c -o HelloWorldBpf.o -I/usr/include/linux -I/lib/modules/$(uname -r)/build/include -I/lib/modules/$(uname -r)/build/include/uapi
+sudo bpftool prog load HelloWorldBpf.o /sys/fs/bpf/HelloWorldBpf type tracepoint autoattach
