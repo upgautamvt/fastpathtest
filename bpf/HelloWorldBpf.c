@@ -1,8 +1,10 @@
 #include "vmlinux.h"
-#include "/home/upgautam/CLionProjects/libbpf/src/bpf_helpers.h"
+#include <bpf/bpf_helpers.h>
+
+char LICENSE[] SEC("license") = "GPL";
 
 SEC("tracepoint/syscalls/sys_enter_execve")
 int bpf_prog(void *ctx) {
-    bpf_trace_printk("Hello World!", 10);
+    bpf_trace_printk("Hello World!\n", 14);
     return 0;
 }

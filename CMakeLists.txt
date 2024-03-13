@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 # Set the C and C++ compilers to clang
 set(CMAKE_C_COMPILER "clang-18")
+set(CMAKE_CXX_COMPILER "clang-18++")
 
 # Common compile flags
 set(COMMON_FLAGS "-O0 -g -Wall -Wextra")

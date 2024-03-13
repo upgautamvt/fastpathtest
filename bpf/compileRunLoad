@@ -1,28 +1,50 @@
-clang-18 -O0 -target bpf -c HelloWorldBpf.c -o HelloWorldBpf.o
+setup bpf development environment by installing all required libraries
 
-sudo bpftool prog load HelloWorldBpf.o /sys/fs/bpf/HelloWorldBpf
+clang -O2 -target bpf -c HelloWorldBpf.c -o HelloWorldBpf.o -I/usr/include/linux -I/lib/modules/$(uname -r)/build/include -I/lib/modules/$(uname -r)/build/include/uapi
+
+sudo bpftool prog load HelloWorldBpf.o /sys/fs/bpf/HelloWorldBpf type tracepoint
+
+
+upgautam@upgautam-desktop:~/CLionProjects/fastpathtest/bpf$ sudo ls /sys/fs/bpf/
+HelloWorldBpf  snap
+upgautam@upgautam-desktop:~/CLionProjects/fastpathtest/bpf$ sudo bpftool prog show pinned /sys/fs/bpf/HelloWorldBpf
+91: tracepoint  name bpf_prog  tag bf163b23cd3b174d  gpl
+        loaded_at 2024-03-12T20:47:39-0400  uid 0
+        xlated 48B  jited 36B  memlock 4096B  map_ids 17
+
+For map, it would be
+    upgautam@upgautam-desktop:~/CLionProjects/fastpathtest/bpf$ sudo bpftool map show pinned /sys/fs/bpf/HelloWorldBpf
+    Error: incorrect object type: prog
+
+
+upgautam@upgautam-desktop:~/CLionProjects/fastpathtest/bpf$ sudo bpftool link list
+1: tracing  prog 2
+        prog_type tracing  attach_type modify_return
+        target_obj_id 1  target_btf_id 113267
+3: perf_event  prog 106
+
+upgautam@upgautam-desktop:~/CLionProjects/fastpathtest/bpf$ sudo bpftool link show pinned /sys/fs/bpf/HelloWorldBpf
+3: perf_event  prog 106
+
+sudo bpftool prog load HelloWorldBpf.o /sys/fs/bpf/HelloWorldBpf type tracepoint autoattach
+
+
+sudo mount -t debugfs none /sys/kernel/debug # usually already enabled by system
+sudo -i and then from root shell
+cd /sys/kernel/debug/tracing/events/syscalls
+echo 1 | sudo tee sys_enter_execve/enable # enable sys_enter_execve tracepoint
+cat /sys/kernel/debug/tracing/events/syscalls/sys_enter_execve/enable # verify tracepoint is enabled
+sudo cat /sys/kernel/debug/tracing/trace_pipe # then run any program in another terminal, you should see the output
 
 
 
-upgautam@ubuntu205:~/CLionProjects/fastpathtestBpf/bpf$ bpftool btf dump file HelloWorldBpf.o
-[1] PTR '(anon)' type_id=3
-[2] INT 'int' size=4 bits_offset=0 nr_bits=32 encoding=SIGNED
-[3] ARRAY '(anon)' type_id=2 index_type_id=4 nr_elems=2
-[4] INT '__ARRAY_SIZE_TYPE__' size=4 bits_offset=0 nr_bits=32 encoding=(none)
-[5] PTR '(anon)' type_id=2
-[6] PTR '(anon)' type_id=8
-[7] INT 'char' size=1 bits_offset=0 nr_bits=8 encoding=SIGNED
-[8] ARRAY '(anon)' type_id=7 index_type_id=4 nr_elems=256
-[9] STRUCT '(anon)' size=24 vlen=3
-        'type' type_id=1 bits_offset=0
-        'key' type_id=5 bits_offset=64
-        'value' type_id=6 bits_offset=128
-[10] VAR 'my_map' type_id=9, linkage=global
-[11] PTR '(anon)' type_id=0
-[12] FUNC_PROTO '(anon)' ret_type_id=2 vlen=1
-        'ctx' type_id=11
-[13] FUNC 'bpf_prog' type_id=12 linkage=global
-[14] DATASEC '.maps' size=0 vlen=1
-        type_id=10 offset=0 size=24 (VAR 'my_map')
 
+
+
+
+
+
+
+upgautam@upgautam-desktop:~/CLionProjects/fastpathtest/bpf$ sudo cat /sys/kernel/debug/tracing/trace_pipe
+cat: /sys/kernel/debug/tracing/trace_pipe: Device or resource busy
 
