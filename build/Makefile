@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /mnt/MyBackup/cmake-3.29.0-rc3-linux-x86_64/bin/cmake
+CMAKE_COMMAND = /mnt/1tb/cmake-3.29.0-rc2-linux-x86_64/bin/cmake
 
 # The command to remove a file.
-RM = /mnt/MyBackup/cmake-3.29.0-rc3-linux-x86_64/bin/cmake -E rm -f
+RM = /mnt/1tb/cmake-3.29.0-rc2-linux-x86_64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/mnt/MyBackup/cmake-3.29.0-rc3-linux-x86_64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/mnt/1tb/cmake-3.29.0-rc2-linux-x86_64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -142,6 +142,58 @@ HelloWorld_sanitized/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloWorld_sanitized.dir/build.make CMakeFiles/HelloWorld_sanitized.dir/build
 .PHONY : HelloWorld_sanitized/fast
 
+#=============================================================================
+# Target rules for targets named MillionLoop
+
+# Build rule for target.
+MillionLoop: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MillionLoop
+.PHONY : MillionLoop
+
+# fast build rule for target.
+MillionLoop/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MillionLoop.dir/build.make CMakeFiles/MillionLoop.dir/build
+.PHONY : MillionLoop/fast
+
+#=============================================================================
+# Target rules for targets named MillionLoop_sanitized
+
+# Build rule for target.
+MillionLoop_sanitized: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MillionLoop_sanitized
+.PHONY : MillionLoop_sanitized
+
+# fast build rule for target.
+MillionLoop_sanitized/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MillionLoop_sanitized.dir/build.make CMakeFiles/MillionLoop_sanitized.dir/build
+.PHONY : MillionLoop_sanitized/fast
+
+#=============================================================================
+# Target rules for targets named ThousandLoop
+
+# Build rule for target.
+ThousandLoop: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ThousandLoop
+.PHONY : ThousandLoop
+
+# fast build rule for target.
+ThousandLoop/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThousandLoop.dir/build.make CMakeFiles/ThousandLoop.dir/build
+.PHONY : ThousandLoop/fast
+
+#=============================================================================
+# Target rules for targets named ThousandLoop_sanitized
+
+# Build rule for target.
+ThousandLoop_sanitized: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ThousandLoop_sanitized
+.PHONY : ThousandLoop_sanitized
+
+# fast build rule for target.
+ThousandLoop_sanitized/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThousandLoop_sanitized.dir/build.make CMakeFiles/ThousandLoop_sanitized.dir/build
+.PHONY : ThousandLoop_sanitized/fast
+
 HelloWorld.o: HelloWorld.c.o
 .PHONY : HelloWorld.o
 
@@ -169,6 +221,60 @@ HelloWorld.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloWorld_sanitized.dir/build.make CMakeFiles/HelloWorld_sanitized.dir/HelloWorld.c.s
 .PHONY : HelloWorld.c.s
 
+MillionLoop.o: MillionLoop.c.o
+.PHONY : MillionLoop.o
+
+# target to build an object file
+MillionLoop.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MillionLoop.dir/build.make CMakeFiles/MillionLoop.dir/MillionLoop.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MillionLoop_sanitized.dir/build.make CMakeFiles/MillionLoop_sanitized.dir/MillionLoop.c.o
+.PHONY : MillionLoop.c.o
+
+MillionLoop.i: MillionLoop.c.i
+.PHONY : MillionLoop.i
+
+# target to preprocess a source file
+MillionLoop.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MillionLoop.dir/build.make CMakeFiles/MillionLoop.dir/MillionLoop.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MillionLoop_sanitized.dir/build.make CMakeFiles/MillionLoop_sanitized.dir/MillionLoop.c.i
+.PHONY : MillionLoop.c.i
+
+MillionLoop.s: MillionLoop.c.s
+.PHONY : MillionLoop.s
+
+# target to generate assembly for a file
+MillionLoop.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MillionLoop.dir/build.make CMakeFiles/MillionLoop.dir/MillionLoop.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MillionLoop_sanitized.dir/build.make CMakeFiles/MillionLoop_sanitized.dir/MillionLoop.c.s
+.PHONY : MillionLoop.c.s
+
+ThousandLoop.o: ThousandLoop.c.o
+.PHONY : ThousandLoop.o
+
+# target to build an object file
+ThousandLoop.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThousandLoop.dir/build.make CMakeFiles/ThousandLoop.dir/ThousandLoop.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThousandLoop_sanitized.dir/build.make CMakeFiles/ThousandLoop_sanitized.dir/ThousandLoop.c.o
+.PHONY : ThousandLoop.c.o
+
+ThousandLoop.i: ThousandLoop.c.i
+.PHONY : ThousandLoop.i
+
+# target to preprocess a source file
+ThousandLoop.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThousandLoop.dir/build.make CMakeFiles/ThousandLoop.dir/ThousandLoop.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThousandLoop_sanitized.dir/build.make CMakeFiles/ThousandLoop_sanitized.dir/ThousandLoop.c.i
+.PHONY : ThousandLoop.c.i
+
+ThousandLoop.s: ThousandLoop.c.s
+.PHONY : ThousandLoop.s
+
+# target to generate assembly for a file
+ThousandLoop.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThousandLoop.dir/build.make CMakeFiles/ThousandLoop.dir/ThousandLoop.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThousandLoop_sanitized.dir/build.make CMakeFiles/ThousandLoop_sanitized.dir/ThousandLoop.c.s
+.PHONY : ThousandLoop.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -179,9 +285,19 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... HelloWorld"
 	@echo "... HelloWorld_sanitized"
+	@echo "... MillionLoop"
+	@echo "... MillionLoop_sanitized"
+	@echo "... ThousandLoop"
+	@echo "... ThousandLoop_sanitized"
 	@echo "... HelloWorld.o"
 	@echo "... HelloWorld.i"
 	@echo "... HelloWorld.s"
+	@echo "... MillionLoop.o"
+	@echo "... MillionLoop.i"
+	@echo "... MillionLoop.s"
+	@echo "... ThousandLoop.o"
+	@echo "... ThousandLoop.i"
+	@echo "... ThousandLoop.s"
 .PHONY : help
 
 
