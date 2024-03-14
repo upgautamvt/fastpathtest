@@ -73,6 +73,12 @@ we can kill the trace_pipe running process by closing the terminal
 or restart tracing by "echo 0 | sudo tee /sys/kernel/debug/tracing/tracing_on" and then enable again by "echo 1 | sudo tee /sys/kernel/debug/tracing/tracing_on"
 
 
+
+
+
+
+bpftool btf dump file /sys/kernel/btf/vmlinux format c > vmlinux.h
+
 ## compile and load and attach
 clang -O2 -target bpf -c bpf/ThousandLoopBpf.c -o bpf/ThousandLoopBpf.o -I/usr/include/linux -I/lib/modules/$(uname -r)/build/include -I/lib/modules/$(uname -r)/build/include/uapi
 sudo bpftool prog load bpf/ThousandLoopBpf.o /sys/fs/bpf/ThousandLoopBpf type tracepoint autoattach
@@ -83,3 +89,14 @@ sudo bpftool prog load bpf/HelloWorldBpf.o /sys/fs/bpf/HelloWorldBpf type tracep
 
 
 sudo cat /sys/kernel/debug/tracing/trace_pipe
+
+
+
+
+
+clang -O2 -g -Wall -target bpf -c ThousandLoopBpf.c -o ThousandLoopBpf.o
+bpftool gen skeleton ThousandLoopBpf.o name ThousandLoopBpf | tee ./output/ThousandLoopBpf.skel.h
+
+TODO: Now, we have to implement corresponding ThousandLoopBpf.skel.c, which we can then compile and run like a normal user-space program
+https://liuhangbin.netlify.app/post/bpf-skeleton/
+https://elixir.bootlin.com/linux/v6.8/source/samples/hid

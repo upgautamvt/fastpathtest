@@ -1,4 +1,4 @@
-#include "vmlinux.h"
+#include <linux/bpf.h>
 #include <bpf/bpf_helpers.h>
 
 char LICENSE[] SEC("license") = "GPL";
@@ -21,3 +21,4 @@ int bpf_prog(struct pt_regs *ctx) {
 
     return 0;
 }
+
