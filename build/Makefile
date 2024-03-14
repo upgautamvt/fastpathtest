@@ -117,6 +117,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named BillionLoop
+
+# Build rule for target.
+BillionLoop: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BillionLoop
+.PHONY : BillionLoop
+
+# fast build rule for target.
+BillionLoop/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BillionLoop.dir/build.make CMakeFiles/BillionLoop.dir/build
+.PHONY : BillionLoop/fast
+
+#=============================================================================
+# Target rules for targets named BillionLoop_sanitized
+
+# Build rule for target.
+BillionLoop_sanitized: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BillionLoop_sanitized
+.PHONY : BillionLoop_sanitized
+
+# fast build rule for target.
+BillionLoop_sanitized/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BillionLoop_sanitized.dir/build.make CMakeFiles/BillionLoop_sanitized.dir/build
+.PHONY : BillionLoop_sanitized/fast
+
+#=============================================================================
 # Target rules for targets named HelloWorld
 
 # Build rule for target.
@@ -323,6 +349,33 @@ ThousandLoop_sanitized: cmake_check_build_system
 ThousandLoop_sanitized/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ThousandLoop_sanitized.dir/build.make CMakeFiles/ThousandLoop_sanitized.dir/build
 .PHONY : ThousandLoop_sanitized/fast
+
+BillionLoop.o: BillionLoop.c.o
+.PHONY : BillionLoop.o
+
+# target to build an object file
+BillionLoop.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BillionLoop.dir/build.make CMakeFiles/BillionLoop.dir/BillionLoop.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BillionLoop_sanitized.dir/build.make CMakeFiles/BillionLoop_sanitized.dir/BillionLoop.c.o
+.PHONY : BillionLoop.c.o
+
+BillionLoop.i: BillionLoop.c.i
+.PHONY : BillionLoop.i
+
+# target to preprocess a source file
+BillionLoop.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BillionLoop.dir/build.make CMakeFiles/BillionLoop.dir/BillionLoop.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BillionLoop_sanitized.dir/build.make CMakeFiles/BillionLoop_sanitized.dir/BillionLoop.c.i
+.PHONY : BillionLoop.c.i
+
+BillionLoop.s: BillionLoop.c.s
+.PHONY : BillionLoop.s
+
+# target to generate assembly for a file
+BillionLoop.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BillionLoop.dir/build.make CMakeFiles/BillionLoop.dir/BillionLoop.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BillionLoop_sanitized.dir/build.make CMakeFiles/BillionLoop_sanitized.dir/BillionLoop.c.s
+.PHONY : BillionLoop.c.s
 
 HelloWorld.o: HelloWorld.c.o
 .PHONY : HelloWorld.o
@@ -548,6 +601,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... BillionLoop"
+	@echo "... BillionLoop_sanitized"
 	@echo "... HelloWorld"
 	@echo "... HelloWorld_sanitized"
 	@echo "... HundredMillionLoop"
@@ -564,6 +619,9 @@ help:
 	@echo "... TenThousandLoop_sanitized"
 	@echo "... ThousandLoop"
 	@echo "... ThousandLoop_sanitized"
+	@echo "... BillionLoop.o"
+	@echo "... BillionLoop.i"
+	@echo "... BillionLoop.s"
 	@echo "... HelloWorld.o"
 	@echo "... HelloWorld.i"
 	@echo "... HelloWorld.s"
