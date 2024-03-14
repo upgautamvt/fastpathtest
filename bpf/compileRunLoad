@@ -80,3 +80,6 @@ sudo bpftool prog load bpf/ThousandLoopBpf.o /sys/fs/bpf/ThousandLoopBpf type tr
 
 clang -O2 -target bpf -c bpf/HelloWorldBpf.c -o bpf/HelloWorldBpf.o -I/usr/include/linux -I/lib/modules/$(uname -r)/build/include -I/lib/modules/$(uname -r)/build/include/uapi
 sudo bpftool prog load bpf/HelloWorldBpf.o /sys/fs/bpf/HelloWorldBpf type tracepoint autoattach
+
+
+sudo cat /sys/kernel/debug/tracing/trace_pipe
