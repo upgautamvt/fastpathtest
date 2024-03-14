@@ -74,9 +74,9 @@ or restart tracing by "echo 0 | sudo tee /sys/kernel/debug/tracing/tracing_on" a
 
 
 ## compile and load and attach
-clang -O2 -target bpf -c ThousandLoopBpf.c -o ThousandLoopBpf.o -I/usr/include/linux -I/lib/modules/$(uname -r)/build/include -I/lib/modules/$(uname -r)/build/include/uapi
-sudo bpftool prog load ThousandLoopBpf.o /sys/fs/bpf/ThousandLoopBpf type tracepoint autoattach
+clang -O2 -target bpf -c bpf/ThousandLoopBpf.c -o bpf/ThousandLoopBpf.o -I/usr/include/linux -I/lib/modules/$(uname -r)/build/include -I/lib/modules/$(uname -r)/build/include/uapi
+sudo bpftool prog load bpf/ThousandLoopBpf.o /sys/fs/bpf/ThousandLoopBpf type tracepoint autoattach
 
 
-clang -O2 -target bpf -c HelloWorldBpf.c -o HelloWorldBpf.o -I/usr/include/linux -I/lib/modules/$(uname -r)/build/include -I/lib/modules/$(uname -r)/build/include/uapi
-sudo bpftool prog load HelloWorldBpf.o /sys/fs/bpf/HelloWorldBpf type tracepoint autoattach
+clang -O2 -target bpf -c bpf/HelloWorldBpf.c -o bpf/HelloWorldBpf.o -I/usr/include/linux -I/lib/modules/$(uname -r)/build/include -I/lib/modules/$(uname -r)/build/include/uapi
+sudo bpftool prog load bpf/HelloWorldBpf.o /sys/fs/bpf/HelloWorldBpf type tracepoint autoattach
