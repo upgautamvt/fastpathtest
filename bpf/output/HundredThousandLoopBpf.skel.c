@@ -5,7 +5,7 @@
 #include <string.h>
 #include <errno.h>
 #include <bpf/libbpf.h>
-#include "%s.skel.h"
+#include "HundredThousandLoopBpf.skel.h"
 
 static int libbpf_print_fn(enum libbpf_print_level level, const char *format, va_list args)
 {
@@ -21,28 +21,28 @@ static void sig_int(int signo)
 
 int main(int argc, char **argv)
 {
-    struct %s *skel;
+    struct HundredThousandLoopBpf *skel;
     int err;
 
     /* Set up libbpf errors and debug info callback */
     libbpf_set_print(libbpf_print_fn);
 
     /* Open load and verify BPF application */
-    skel = %s__open_and_load();
+    skel = HundredThousandLoopBpf__open_and_load();
     if (!skel) {
         fprintf(stderr, "Failed to open BPF skeleton\n");
         return 1;
     }
 
     /* Attach tracepoint handler */
-    err = %s__attach(skel);
+    err = HundredThousandLoopBpf__attach(skel);
     if (err) {
         fprintf(stderr, "Failed to attach BPF skeleton\n");
         goto cleanup;
     }
 
     if (signal(SIGINT, sig_int) == SIG_ERR) {
-        fprintf(stderr, "can't set signal handler: %s\n", strerror(errno));
+        fprintf(stderr, "can't set signal handler: HundredThousandLoopBpf\n", strerror(errno));
         goto cleanup;
     }
 
@@ -55,6 +55,6 @@ int main(int argc, char **argv)
     }
 
     cleanup:
-    %s__destroy(skel);
+    HundredThousandLoopBpf__destroy(skel);
     return -err;
 }
