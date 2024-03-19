@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <unistd.h>
 #include <time.h>
 
 int main() {
@@ -7,14 +6,6 @@ int main() {
     long long delta_ns;
 
     clock_gettime(CLOCK_MONOTONIC, &start);
-
-
-    int n, i, sum=0;
-    for (i=0; i<1000; i++) {
-        n=getpid();
-        sum=sum+n;
-    }
-
 
     clock_gettime(CLOCK_MONOTONIC, &end);
 

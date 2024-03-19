@@ -11,7 +11,7 @@ int bpf_prog(struct pt_regs *ctx) {
 
     int i;
 
-    for (i = 0; i < 1000; i++) {
+    for (i = 0; i < 100; i++) {
         bpf_printk("");
     }
 

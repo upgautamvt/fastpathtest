@@ -1,52 +1,23 @@
-# SPDX-License-Identifier: (LGPL-2.1 OR BSD-2-Clause)
-OUTPUT ?= ./output
-CLANG ?= clang
-LLVM_STRIP ?= llvm-strip
-BPFTOOL ?= bpftool
+CC = clang
+CFLAGS = -g -target bpf -Wall -O2
+INCLUDES = -I$(shell realpath ~/CLionProjects/decoupling/linux/tools/lib) -I$(shell realpath ~/CLionProjects/decoupling/linux/usr/include)
 
-INCLUDES := -I$(OUTPUT) -I/usr/include/linux -I/lib/modules/$(shell uname -r)/build/include -I/lib/modules/$(shell uname -r)/build/include/uapi
-CFLAGS := -g -Wall -lbpf
+# Define source files
+SRCS := $(filter-out template.c,$(wildcard *.c))
+OBJS = $(SRCS:.c=.o)
 
-APPS = ThousandLoopBpf
+# Define targets
+all: $(OBJS)
 
-.PHONY: all
-all: $(APPS)
+# Rule to compile any .c file into a .o file and generate skeleton file
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	# Generate skeleton file and redirect stdout to the specified file
+	bpftool gen skeleton $@ name $(basename $@) | tee ./output/$(basename $@).skel.h > /dev/null 2>&1
+	# Generate skel.c file with content and replace occurrences of "ThousandLoopBpf" with the basename of the target
+	cat template.c | sed 's/%s/$(basename $@)/g' > ./$(basename $@).skel.c
 
-.PHONY: clean
+
+# Define a rule to clean up generated files
 clean:
-	$(call msg,CLEAN)
-	rm -rf $(OUTPUT) $(APPS)
-
-$(OUTPUT):
-	$(call msg,MKDIR,$@)
-	mkdir -p $@
-
-# Build BPF code
-$(OUTPUT)/%.bpf.o: %.bpf.c $(wildcard %.h) | $(OUTPUT)
-	$(call msg,BPF,$@)
-	$(BPFTOOL) btf dump file /sys/kernel/btf/vmlinux format c > $(OUTPUT)/vmlinux.h
-	$(CLANG) -g -O2 -target bpf $(INCLUDES) $(CLANG_BPF_SYS_INCLUDES) -c $(filter %.c,$^) -o $@
-	$(LLVM_STRIP) -g $@ # strip useless DWARF info
-
-# Generate BPF skeletons
-$(OUTPUT)/%.skel.h: $(OUTPUT)/%.bpf.o | $(OUTPUT)
-	$(call msg,GEN-SKEL,$@)
-	$(BPFTOOL) gen skeleton $< > $@
-
-# Build user-space code
-$(patsubst %,$(OUTPUT)/%.o,$(APPS)): %.o: %.skel.h
-
-$(OUTPUT)/%.o: %.c $(wildcard %.h) | $(OUTPUT)
-	$(call msg,CC,$@)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $(filter %.c,$^) -o $@
-
-# Build application binary
-$(APPS): %: $(OUTPUT)/%.o | $(OUTPUT)
-	$(call msg,BINARY,$@)
-	$(CC) $(CFLAGS) $^ -lelf -lz -o $@
-
-# delete failed targets
-.DELETE_ON_ERROR:
-
-# keep intermediate (.skel.h, .bpf.o, etc) targets
-.SECONDARY:
+	rm -f $(OBJS)

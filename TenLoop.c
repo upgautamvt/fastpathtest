@@ -9,15 +9,11 @@ int main() {
     clock_gettime(CLOCK_MONOTONIC, &start);
 
 
-    int n, i, sum=0;
-    for (i=0; i<10; i++) {
-        n=getpid();
-        sum=sum+n;
+    int i;
+    for (i=0; i<100; i++) {
+        getpid(); //vDSO optimization gives false positive
+        printf(""); //leads to system call
     }
-    printf("Answer is %d\n", sum);
-
-
-
 
 
     clock_gettime(CLOCK_MONOTONIC, &end);

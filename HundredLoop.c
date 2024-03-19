@@ -10,7 +10,7 @@ int main() {
 
 
     int i;
-    for (i=0; i<10000; i++) {
+    for (i=0; i<10; i++) {
         getpid(); //vDSO optimization gives false positive
         printf(""); //leads to system call
     }
