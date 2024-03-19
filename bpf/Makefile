@@ -21,3 +21,5 @@ all: $(OBJS)
 # Define a rule to clean up generated files
 clean:
 	rm -f $(OBJS)
+	rm -rf ./output/*
+	rm -f *.skel.c
