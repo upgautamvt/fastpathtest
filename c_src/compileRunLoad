@@ -78,3 +78,5 @@ or restart tracing by "echo 0 | sudo tee /sys/kernel/debug/tracing/tracing_on" a
 
 
 
+# cmake -S . -B build
+# cmake --build build
