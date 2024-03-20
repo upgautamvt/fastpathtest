@@ -9,10 +9,13 @@ int main() {
     clock_gettime(CLOCK_MONOTONIC, &start);
 
 
-    int i;
+    long i;
+    int a;
+
     for (i=0; i<100000000; i++) {
-        getpid(); //vDSO optimization gives false positive
-        printf(""); //leads to system call
+        //getpid(); //vDSO optimization gives false positive
+        printf("\n"); //leads to system call
+        a = 1;
     }
 
 

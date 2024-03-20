@@ -10,9 +10,11 @@ int bpf_prog(struct pt_regs *ctx) {
     __u64 start = bpf_ktime_get_ns();
 
     int i;
+    int a;
 
     for (i = 0; i < 10; i++) {
-        bpf_printk("");
+        bpf_printk("\n");
+        a = 1;
     }
 
     //end time

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUT_DIR="./build"
+OUT_DIR="./c_src/build"
 STRACE_DIR="${OUT_DIR}/strace_outputs"
 
 # Create a directory for strace outputs if it doesn't exist
