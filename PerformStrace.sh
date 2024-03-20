@@ -9,6 +9,7 @@ mkdir -p "$STRACE_DIR"
 # Function to perform strace and save output
 perform_strace() {
     local binary_file=$1
+    # shellcheck disable=SC2155
     local output_file="${STRACE_DIR}/strace_$(basename "${binary_file}").txt"
     strace -o "${output_file}" -f -e trace=all "./${binary_file}"
     echo "Strace output for ${binary_file} saved to ${output_file}"
