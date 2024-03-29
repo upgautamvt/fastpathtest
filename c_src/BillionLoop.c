@@ -14,7 +14,8 @@ int main() {
 
     for (i=0; i<1000000000; i++) {
         //getpid(); //vDSO optimization gives false positive
-        printf("\n"); //leads to system call
+        //printf("\n"); //leads to system call, but we need kind of null system call
+        syscall(SYS_getpid); //this guy I think applies
         a = 1;
     }
 

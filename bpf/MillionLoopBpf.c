@@ -13,7 +13,8 @@ int bpf_prog(struct pt_regs *ctx) {
     int a;
 
     for (i = 0; i < 1000000; i++) {
-        bpf_printk("\n");
+        //bpf_printk("\n");
+        bpf_get_current_pid_tgid() & 0xffffffff; //or bpf_get_current_pid_tgid() >> 32
         a = 1;
     }
 
