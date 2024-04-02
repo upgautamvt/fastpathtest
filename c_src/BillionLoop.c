@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <time.h>
+#include <sys/syscall.h>
 
 int main() {
     struct timespec start, end;
