@@ -247,6 +247,32 @@ MillionLoop_sanitized/fast:
 .PHONY : MillionLoop_sanitized/fast
 
 #=============================================================================
+# Target rules for targets named ReadFile
+
+# Build rule for target.
+ReadFile: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ReadFile
+.PHONY : ReadFile
+
+# fast build rule for target.
+ReadFile/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReadFile.dir/build.make CMakeFiles/ReadFile.dir/build
+.PHONY : ReadFile/fast
+
+#=============================================================================
+# Target rules for targets named ReadFile_sanitized
+
+# Build rule for target.
+ReadFile_sanitized: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ReadFile_sanitized
+.PHONY : ReadFile_sanitized
+
+# fast build rule for target.
+ReadFile_sanitized/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReadFile_sanitized.dir/build.make CMakeFiles/ReadFile_sanitized.dir/build
+.PHONY : ReadFile_sanitized/fast
+
+#=============================================================================
 # Target rules for targets named TenBillionLoop
 
 # Build rule for target.
@@ -537,6 +563,33 @@ MillionLoop.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MillionLoop_sanitized.dir/build.make CMakeFiles/MillionLoop_sanitized.dir/MillionLoop.c.s
 .PHONY : MillionLoop.c.s
 
+ReadFile.o: ReadFile.c.o
+.PHONY : ReadFile.o
+
+# target to build an object file
+ReadFile.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReadFile.dir/build.make CMakeFiles/ReadFile.dir/ReadFile.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReadFile_sanitized.dir/build.make CMakeFiles/ReadFile_sanitized.dir/ReadFile.c.o
+.PHONY : ReadFile.c.o
+
+ReadFile.i: ReadFile.c.i
+.PHONY : ReadFile.i
+
+# target to preprocess a source file
+ReadFile.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReadFile.dir/build.make CMakeFiles/ReadFile.dir/ReadFile.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReadFile_sanitized.dir/build.make CMakeFiles/ReadFile_sanitized.dir/ReadFile.c.i
+.PHONY : ReadFile.c.i
+
+ReadFile.s: ReadFile.c.s
+.PHONY : ReadFile.s
+
+# target to generate assembly for a file
+ReadFile.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReadFile.dir/build.make CMakeFiles/ReadFile.dir/ReadFile.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReadFile_sanitized.dir/build.make CMakeFiles/ReadFile_sanitized.dir/ReadFile.c.s
+.PHONY : ReadFile.c.s
+
 TenBillionLoop.o: TenBillionLoop.c.o
 .PHONY : TenBillionLoop.o
 
@@ -692,6 +745,8 @@ help:
 	@echo "... HundredThousandLoop_sanitized"
 	@echo "... MillionLoop"
 	@echo "... MillionLoop_sanitized"
+	@echo "... ReadFile"
+	@echo "... ReadFile_sanitized"
 	@echo "... TenBillionLoop"
 	@echo "... TenBillionLoop_sanitized"
 	@echo "... TenLoop"
@@ -717,6 +772,9 @@ help:
 	@echo "... MillionLoop.o"
 	@echo "... MillionLoop.i"
 	@echo "... MillionLoop.s"
+	@echo "... ReadFile.o"
+	@echo "... ReadFile.i"
+	@echo "... ReadFile.s"
 	@echo "... TenBillionLoop.o"
 	@echo "... TenBillionLoop.i"
 	@echo "... TenBillionLoop.s"
