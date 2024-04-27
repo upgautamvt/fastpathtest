@@ -1,6 +1,6 @@
 CC = clang
 CFLAGS = -g -target bpf -Wall -O2
-INCLUDES = -I$(shell realpath ~/CLionProjects/decoupling/linux/tools/lib) -I$(shell realpath ~/CLionProjects/decoupling/linux/usr/include)
+INCLUDES = -I$(shell realpath ~/CLionProjects/inner_unikernels/linux/tools/lib) -I$(shell realpath ~/CLionProjects/inner_unikernels/linux/usr/include)
 
 # Define source files
 SRCS := $(filter-out template.c,$(wildcard *.c))

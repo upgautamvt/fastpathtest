@@ -1,7 +1,7 @@
 ## Define directories
-LIB_DIR := $(shell realpath ~/CLionProjects/decoupling/linux/tools/lib)
-INCLUDE_DIR := $(shell realpath ~/CLionProjects/decoupling/linux/usr/include)
-BPF_LIB_DIR := $(shell realpath ~/CLionProjects/decoupling/linux/tools/lib/bpf)
+LIB_DIR := $(shell realpath ~/CLionProjects/inner_unikernels/linux/tools/lib)
+INCLUDE_DIR := $(shell realpath ~/CLionProjects/inner_unikernels/linux/usr/include)
+BPF_LIB_DIR := $(shell realpath ~/CLionProjects/inner_unikernels/linux/tools/lib/bpf)
 
 ## Define source files
 SKEL_SRCS := $(wildcard *.skel.c)
