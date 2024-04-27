@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <time.h>
+#include <sys/syscall.h>
 
 int main() {
     struct timespec start, end;
@@ -9,10 +10,10 @@ int main() {
     clock_gettime(CLOCK_MONOTONIC, &start);
 
 
-    long i;
+    int i;
     int a;
 
-    for (i=0; i<1000000000; i++) {
+    for (i=0; i<100; i++) {
         //getpid(); //vDSO optimization gives false positive
         //printf("\n"); //leads to system call, but we need kind of null system call
         syscall(SYS_getpid); //this guy I think applies

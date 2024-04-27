@@ -9,13 +9,30 @@ int bpf_prog(struct pt_regs *ctx) {
     //start time
     __u64 start = bpf_ktime_get_ns();
 
-    long i;
-    int a;
 
-    for (i = 0; i < 100000; i++) {
+
+    int i;
+
+    //sleep simulation
+    // Define the sleep duration in nanoseconds (500 milliseconds)
+    __u64 sleep_duration_ns = 450000 * 1000000;
+
+    // Get the current time in nanoseconds
+    __u64 start_time = bpf_ktime_get_ns();
+    __u64 end_time = start_time + sleep_duration_ns;
+
+    for (i = 0; i < 250; i++) {
         //bpf_printk("\n");
         bpf_get_current_pid_tgid() & 0xffffffff; //or bpf_get_current_pid_tgid() >> 32
-        a = 1;
+
+        // Sleep loop
+        while (1) {
+            __u64 current_time = bpf_ktime_get_ns();
+            if (current_time >= end_time) {
+                break;
+            }
+        }
+
     }
 
     //end time
